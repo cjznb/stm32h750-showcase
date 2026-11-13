@@ -1,0 +1,25 @@
+# 系统 / 编辑器
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 构建与产物（本仓库只放静态素材，不应出现）
+build/
+dist/
+*.log
+*.tmp
+
+# 原始视频素材（体积大、含拍屏抖动，只提交转好的 GIF/MP4）
+images/video-src/
+# 注：images/demo-gesture.mp4 是压缩后的成品（~620 KB），需要提交，故不在此忽略
