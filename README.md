@@ -311,6 +311,7 @@ bootloader：staging READY → 校验（CRC/SHA）→ 擦目标槽 → 流式写
 | [`docs/highlights.md`](docs/highlights.md) | 技术亮点详版（含判据、量化、被否证的方案） |
 | [`docs/ota.md`](docs/ota.md) | OTA 契约、状态机、失败处置 |
 | [`docs/ai-collaboration.md`](docs/ai-collaboration.md) | 与 AI 协作的工程方法（含"AI 出错被纠正"的实例） |
+| [`docs/ai-experience.md`](docs/ai-experience.md) | **与 AI 协作的经验与体会**（复盘：判据、分工、代价） |
 | [`docs/portfolio.md`](docs/portfolio.md) | **作品集 17 页幻灯片的逐页预览 + 下载** |
 | [`assets/`](assets/) | 作品集原件：`portfolio-STM32H750.pdf` / `.pptx` |
 | [`scripts/`](scripts/) | 图片、图表、作品集预览的生成脚本（可复现） |

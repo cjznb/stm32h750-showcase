@@ -10,6 +10,8 @@
 | **PDF** | [`portfolio-STM32H750.pdf`](../assets/portfolio-STM32H750.pdf) | 0.78 MB | **推荐**：排版固定、跨平台、浏览器可直接看 |
 | **PowerPoint** | [`portfolio-STM32H750.pptx`](../assets/portfolio-STM32H750.pptx) | 2.46 MB | 可编辑原件（16:9，17 页） |
 
+> ⚠ **公开版已对第 1 页的联系方式做掩码处理**（`193****2002`）。
+>
 > 下面的逐页预览由 PDF 渲染生成（1440×810），与原件排版一致；生成脚本见
 > [`scripts/build_portfolio.py`](../scripts/build_portfolio.py)（pptx → PDF → PNG，可复现）。
 
