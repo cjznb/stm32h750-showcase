@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 700" width="1040" height="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+    <style>
+      .bg{fill:#f6f8fa}
+      .bx{fill:#fff;stroke:#d0d7de;stroke-width:1.3;rx:8}
+      .lay{fill:#fff;stroke:#d0d7de;stroke-width:1.3}
+      .t{fill:#1f2328;font-size:13px}
+      .tb{fill:#1f2328;font-size:14px;font-weight:600}
+      .ts{fill:#57606a;font-size:11px}
+      .tag{fill:#57606a;font-size:10.5px}
+      .ln{stroke:#57606a;stroke-width:1.4;fill:none;marker-end:url(#a)}
+      .ln2{stroke:#8250df;stroke-width:1.6;fill:none;marker-end:url(#a);stroke-dasharray:5 4}
+      .hdr{fill:#1f2328;font-size:17px;font-weight:700}
+      .badge{fill:#ddf4ff;stroke:#54aeff;stroke-width:1}
+      .badgeT{fill:#0969da;font-size:10.5px}
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1040" height="700" rx="10"/>
+  <text class="hdr" x="28" y="34">STM32H750 智能家居终端 · 系统架构</text>
+  <text class="ts" x="28" y="54">裸机 + FreeRTOS + LVGL 9.5 ｜ 800×480 LTDC 双层 ｜ QSPI XIP + SDRAM 帧缓冲 ｜ 双槽 bootloader + 整机 OTA ｜ ESP32-C6 协处理器</text>
+
+  <!-- 云端 -->
+  <rect class="bx" x="300" y="76" width="440" height="74" rx="8" fill="#fff"/>
+  <text class="tb" x="316" y="98">云端（自建服务端 · 阿里云 ECS）</text>
+  <text class="t" x="316" y="118">ota_server  HTTPS（自签 · systemd）</text>
+  <text class="t" x="316" y="137">mosquitto   MQTT over TLS（用户名/密码 · systemd）</text>
+  <rect class="badge" x="560" y="84" width="118" height="18" rx="9"/>
+  <text class="badgeT" x="570" y="97">推送触发 + 镜像分发</text>
+
+  <!-- C6 -->
+  <rect class="bx" x="360" y="188" width="320" height="62" rx="8" fill="#fff"/>
+  <text class="tb" x="376" y="210">ESP32-C6 协处理器（N16）</text>
+  <text class="t" x="376" y="230">WiFi / MQTT / TLS / HTTP Range</text>
+  <text class="ts" x="376" y="245">第三方最小系统板 · Arduino + esp32 core ≥3.0</text>
+
+  <path class="ln" d="M520,150 L520,188"/>
+  <text class="ts" x="528" y="174">MQTT(TLS) 触发</text>
+  <path class="ln" d="M668,150 L668,175 L676,175 L676,205 L680,205"/>
+  <text class="ts" x="690" y="174">HTTPS 镜像</text>
+
+  <!-- STM32 大框 -->
+  <rect class="lay" x="150" y="292" width="740" height="268" rx="10" fill="#fff"/>
+  <text class="tb" x="168" y="316">STM32H750（Cortex-M7 @480 MHz · FreeRTOS）</text>
+  <text class="ts" x="168" y="333">DVFS 480/400/280/200 MHz ｜ ITCM 64 KB 热链 ｜ DTCM 栈/堆 ｜ AXI SRAM TLSF 池 ｜ MPU Region3/8</text>
+
+  <path class="ln" d="M520,250 L520,292"/>
+  <text class="ts" x="528" y="276">UART 921600 · 帧协议 AA55|type|len|payload|CRC16</text>
+
+  <!-- 层 -->
+  <rect class="lay" x="170" y="348" width="700" height="40" rx="6" fill="#fff"/>
+  <text class="t" x="184" y="366">APP / UI 层</text>
+  <text class="ts" x="184" y="380">LVGL 9.5 屏幕 · 控件 · 主题 · i18n · 手势/状态机</text>
+
+  <rect class="lay" x="170" y="396" width="700" height="40" rx="6" fill="#fff"/>
+  <text class="t" x="184" y="414">服务层</text>
+  <text class="ts" x="184" y="428">统一 VFS（FatFs + littlefs）· POSIX 系统调用 · OTA 客户端 · 日志 · 系统监控</text>
+
+  <rect class="lay" x="170" y="444" width="700" height="40" rx="6" fill="#fff"/>
+  <text class="t" x="184" y="462">模型 / 网络层</text>
+  <text class="ts" x="184" y="476">实体与事件总线（MVVM）· C6 桥接 · MQTT 过滤器 · Device Profile（设备描述化）</text>
+
+  <rect class="lay" x="170" y="492" width="700" height="52" rx="6" fill="#fff"/>
+  <text class="t" x="184" y="510">BSP / 驱动层</text>
+  <text class="ts" x="184" y="524">LTDC · 触摸(GT1158 · TIM7+I2C DMA) · SDRAM(FMC) · QSPI(W25Q256) · SDMMC1 · SPI1(W25Q128)</text>
+  <text class="ts" x="184" y="538">I2C 传感器(SHT3x/BH1750/AT24Cxx) · EasyLogger · TLSF · cpufreq 通知机制</text>
+
+  <!-- 外设 -->
+  <rect class="bx" x="150" y="596" width="300" height="66" rx="8" fill="#fff"/>
+  <text class="tb" x="166" y="617">800×480 面板（LTDC 双层合成）</text>
+  <text class="t" x="166" y="636">L1 底层 / L2 = LVGL UI</text>
+  <text class="ts" x="166" y="652">三缓冲 · DIRECT · CFBAR 垂直消隐换页</text>
+
+  <rect class="bx" x="482" y="596" width="408" height="66" rx="8" fill="#fff"/>
+  <text class="tb" x="498" y="617">存储介质</text>
+  <text class="t" x="498" y="636">SD 卡（FatFS · U:）｜ W25Q128（littlefs · S: + OTA staging）</text>
+  <text class="ts" x="498" y="652">W25Q256（QSPI · App 双槽：slot A / slot B）</text>
+
+  <path class="ln" d="M300,560 L300,596"/>
+  <path class="ln" d="M686,560 L686,596"/>
+
+  <!-- 工具链侧栏 -->
+  <rect class="bx" x="900" y="292" width="118" height="268" rx="8" fill="#fff"/>
+  <text class="tb" x="912" y="313" font-size="12.5">工程化</text>
+  <text class="ts" x="912" y="334">CMake/Ninja</text>
+  <text class="ts" x="912" y="352">Debug +</text>
+  <text class="ts" x="912" y="366">RelWithDebInfo</text>
+  <text class="ts" x="912" y="388">GitHub Actions</text>
+  <text class="ts" x="912" y="402">三配置 + 守卫</text>
+  <text class="ts" x="912" y="424">Renode 仿真</text>
+  <text class="ts" x="912" y="438">SPI Flash 模型</text>
+  <text class="ts" x="912" y="460">SerialHub</text>
+  <text class="ts" x="912" y="474">串口 MCP</text>
+  <text class="ts" x="912" y="496">agent 记忆库</text>
+  <text class="ts" x="912" y="510">71 条事实</text>
+  <text class="ts" x="912" y="532">主机测试夹具</text>
+  <text class="ts" x="912" y="546">ctest / python</text>
+
+  <text class="tag" x="28" y="686">说明：尺寸/引脚/契约以仓库内 agent/INTERFACES.md、agent/PROJECT_FRAMEWORK.md 为准；本图仅示意分层与数据流。</text>
+</svg>
